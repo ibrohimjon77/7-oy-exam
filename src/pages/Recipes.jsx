@@ -10,21 +10,17 @@ function Recipes() {
   const [MaxPrep, SetPrep] = useState("");
   const [MaxCook, SetCook] = useState("");
 
-  // filter query string
   const filter = `?${MaxPrep ? `prepMinutes=${MaxPrep}` : ""}${
     MaxCook && MaxPrep ? "&" : ""
   }${MaxCook ? `cookMinutes=${MaxCook}` : ""}`;
 
-  // avval useFetch chaqiriladi
   const { data, error, pending } = useFetch(
     "https://json-api.uz/api/project/recipes/recipes" + filter
   );
 
-  // keyin search filter qilinadi
   const filteredData = data?.data.filter((e) =>
     e.title.toLowerCase().includes(search.toLowerCase())
   );
-
   return (
     <>
       <div className="container recipes">
@@ -37,40 +33,47 @@ function Recipes() {
         </p>
       </div>
 
-      {/* Filter UI */}
-      <div className="container">
-        <select defaultValue="" onChange={(e) => SetPrep(e.target.value)}>
-          <option value="" disabled>
-            Max Prep Time
-          </option>
-          <option value="0">0 minutes</option>
-          <option value="5">5 minutes</option>
-          <option value="10">10 minutes</option>
-        </select>
+      <div className="container filtered">
+        <div className="selected">
+          <select
+            className="select1"
+            value={MaxPrep}
+            onChange={(e) => SetPrep(e.target.value)}
+          >
+            <option value="">Max Prep Time</option>
+            <option value="0">0 minutes</option>
+            <option value="5">5 minutes</option>
+            <option value="10">10 minutes</option>
+            <option value="15">15 minutes</option>
+            <option value="20">20 minutes</option>
+          </select>
 
-        <select defaultValue="" onChange={(e) => SetCook(e.target.value)}>
-          <option value="" disabled>
-            Max Cook Time
-          </option>
-          <option value="0">0 minutes</option>
-          <option value="5">5 minutes</option>
-          <option value="10">10 minutes</option>
-        </select>
+          <select
+            className="select2"
+            value={MaxCook}
+            onChange={(e) => SetCook(e.target.value)}
+          >
+            <option value="">Max Cook Time</option>
+            <option value="0">0 minutes</option>
+            <option value="2">2 minutes</option>
+            <option value="10">10 minutes</option>
+            <option value="15">15 minutes</option>
+            <option value="20">20 minutes</option>
+          </select>
+        </div>
 
         <input
           type="text"
-          placeholder="Search recipes..."
+          placeholder=" Search by name or ingredient…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="search-input"
         />
       </div>
 
-      {/* Loading / Error */}
-      {pending && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {pending && <h1 className="loading">Loading...</h1>}
+      {error && <p className="loading">{error}</p>}
 
-      {/* Cards */}
       <div className="cards container">
         {filteredData &&
           filteredData.map((e) => (
@@ -98,35 +101,35 @@ function Recipes() {
               <p>{e.overview}</p>
 
               <div className="halo">
-                <span>
+                <div className="serving">
                   <img
                     style={{ width: "20px", height: "20px" }}
                     src={serving}
                     alt=""
                   />
-                  Servings: {e.servings}
-                </span>
-                <p>
+                  <p>Servings: {e.servings}</p>
+                </div>
+                <div className="prep">
                   <img
                     style={{ width: "20px", height: "20px" }}
                     src={prep}
                     alt=""
                   />
-                  Prep: {e.prepMinutes}
-                </p>
+                  <p>Prep: {e.prepMinutes}</p>
+                </div>
               </div>
 
-              <p>
+              <div className="cook">
                 <img
                   style={{ width: "20px", height: "20px" }}
                   src={cook}
                   alt=""
                 />
-                Cook: {e.cookMinutes}
-              </p>
+                <p>Cook: {e.cookMinutes}</p>
+              </div>
 
-              <Link to={`/recipes/${e.id}`} >
-                <button className="btn">View Recipe</button>
+              <Link to={`/recipes/${e.id}`}>
+                <button className="btn2">View Recipe</button>
               </Link>
             </div>
           ))}
