@@ -1,7 +1,7 @@
 import React from "react";
-import instagram from "../../assets/images/icon-instagram.svg";
-import tiktok from "../../assets/images/icon-tiktok.svg";
-import bluesky from "../../assets/images/icon-bluesky.svg";
+import instagram from "../../public/assets/images/icon-instagram.svg";
+import tiktok from "../../public/assets/images/icon-tiktok.svg";
+import bluesky from "../../public/assets/images/icon-bluesky.svg";
 function Footer() {
   return (
     <div className="container">

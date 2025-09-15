@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useFetch } from "../useFetch";
-import serving from "../../assets/images/icon-servings.svg";
-import cook from "../../assets/images/icon-cook-time.svg";
-import prep from "../../assets/images/icon-prep-time.svg";
+import serving from "../../public/assets/images/icon-servings.svg";
+import cook from "../../public/assets/images/icon-cook-time.svg";
+import prep from "../../public/assets/images/icon-prep-time.svg";
 import { Link } from "react-router-dom";
 
 function Recipes() {

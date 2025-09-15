@@ -1,9 +1,9 @@
 import React from 'react'
-import heroImg from '../../assets/images/image-home-hero-large.webp'
-import icon from '../../assets/images/icon-whole-food-recipes.svg'
-import icon2 from '../../assets/images/icon-minimum-fuss.svg'
-import icon3 from '../../assets/images/icon-search-in-seconds.svg'
-import heroImg2 from '../../assets/images/image-home-real-life-small.webp'
+import heroImg from "../../public/assets/images/image-home-hero-large.webp";
+import icon from "../../public/assets/images/icon-whole-food-recipes.svg";
+import icon2 from "../../public/assets/images/icon-minimum-fuss.svg";
+import icon3 from "../../public/assets/images/icon-search-in-seconds.svg";
+import heroImg2 from "../../public/assets/images/image-home-real-life-small.webp";
 function Home() {
   return (
     <>

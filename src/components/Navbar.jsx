@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../assets/images/logo.svg";
+import logo from "../../public/assets/images/logo.svg";
 import { NavLink } from "react-router-dom";
 function Navbar() {
   const [open, setOpen] = useState(false);

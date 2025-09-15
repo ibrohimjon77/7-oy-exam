@@ -1,7 +1,7 @@
 import React from "react";
-import aboutImg from "../../assets/images/image-about-our-mission-small.webp";
-import bullet from "../../assets/images/icon-bullet-point.svg";
-import aboutBeyond from "../../assets/images/image-about-beyond-the-plate-small.webp"
+import aboutImg from "../../public/assets/images/image-about-our-mission-small.webp";
+import bullet from "../../public/assets/images/icon-bullet-point.svg";
+import aboutBeyond from "../../public/assets/images/image-about-beyond-the-plate-small.webp"
 function About() {
   return (
     <>
