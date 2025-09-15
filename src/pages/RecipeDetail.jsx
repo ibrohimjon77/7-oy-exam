@@ -9,12 +9,14 @@ function RecipeDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  
   const {
     data: recipeData,
     error,
     pending,
   } = useFetch(`https://json-api.uz/api/project/recipes/recipes/${id}`);
 
+  
   const {
     data: allData,
     error: allError,
